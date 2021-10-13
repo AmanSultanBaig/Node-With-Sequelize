@@ -2,8 +2,8 @@ const { Sequelize, DataTypes } = require("sequelize");
 
 const sequelize = new Sequelize(
     process.env.DB_NAME,
-    process.env.USERNAME,
-    process.env.PASSWORD, {
+    process.env.DB_USER,
+    process.env.DB_PASSWORD, {
         host: "localhost",
         dialect: "mysql",
         pool: { max: 5, min: 3 }
@@ -21,7 +21,7 @@ db.sequelize = sequelize;
 
 db.users = require("../models/UserModel")(sequelize, DataTypes)
 
-db.sequelize.sync({ force: true, alter: true }).then(() => {
+db.sequelize.sync({ force: false, alter: true }).then(() => {
     console.log("Tables are synchronized")
 }).catch(e => {
     console.log("Error while synchronizing " + e)

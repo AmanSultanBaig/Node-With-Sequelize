@@ -1,9 +1,13 @@
 const express = require("express");
 const app = express();
+const routes = require("./routes/routes")
 require("dotenv").config()
 
 // db connection
 require("./config/db_config")
+
+app.use(express.json())
+app.use("/api", routes)
 
 app.get("/", (req, res) => {
     res.send("WELCOME TO PROJECT")
