@@ -3,8 +3,8 @@ const app = express();
 const routes = require("./routes/routes")
 require("dotenv").config()
 
-// db connection
-require("./config/db_config")
+// // db connection
+// require("./models/index")
 
 app.use(express.json())
 app.use("/api", routes)

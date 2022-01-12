@@ -1,5 +1,5 @@
 // const Users = require("../models/UserModel")
-const db = require("../config/db_config")
+const db = require("../models")
 const Users = db.users
 
 const addUser = async (req, res) => {

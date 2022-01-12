@@ -19,7 +19,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.users = require("../models/UserModel")(sequelize, DataTypes)
+db.users = require("./UserModel")(sequelize, DataTypes)
 
 db.sequelize.sync({ force: false, alter: true }).then(() => {
     console.log("Tables are synchronized")
